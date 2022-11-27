@@ -3,7 +3,7 @@ $(document).ready(function() {
         event.preventDefault();
         $.ajax({
             type: $(this).attr('method'),
-            url: $(this).attr('action'),
+            url: '/test-project' + $(this).attr('action'),
             data: new FormData(this),
             contentType: false,
             cache: false,

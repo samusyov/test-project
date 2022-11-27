@@ -18,22 +18,25 @@ else
 function AuthLoginAndPass($login, $password): array
 {
     $json_arr = json_decode(file_get_contents('C:\xampp\htdocs\test-project\db\file.json'), true);
-    foreach ($json_arr as $one)
+    if (is_array($json_arr) || is_object($json_arr))
     {
-        if ($one['login'] == $login)
+        foreach ($json_arr as $one)
         {
-            if ($one['password'] == $password)
+            if ($one['login'] == $login)
             {
-                $_SESSION["is_auth"] = true;
-                $_SESSION["user_login"] = $one['login'];
-                $_SESSION['user_name'] = $one['name'];
-                setcookie('user_login', $one['login'], time() + (86400 * 30), "/");
-                return array('errorType' => $one['name']);
-            }
-            else
-            {
-                $_SESSION["is_auth"] = false;
-                return array('errorType' => 'wrong-password');
+                if ($one['password'] == $password)
+                {
+                    $_SESSION["is_auth"] = true;
+                    $_SESSION["user_login"] = $one['login'];
+                    $_SESSION['user_name'] = $one['name'];
+                    setcookie('user_login', $one['login'], time() + (86400 * 30), "/");
+                    return array('errorType' => $one['name']);
+                }
+                else
+                {
+                    $_SESSION["is_auth"] = false;
+                    return array('errorType' => 'wrong-password');
+                }
             }
         }
     }
