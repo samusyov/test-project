@@ -1,0 +1,5 @@
+RewriteEngine On
+
+RewriteCond %{HTTP_REFERER} !^http://localhost/test-project/db [NC]
+
+RewriteRule \.(json)$ - [F,L]
