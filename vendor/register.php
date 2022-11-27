@@ -1,6 +1,6 @@
 <?php
 
-$file_name = 'C:\Users\User\Downloads\projects\php_stazh\test-project\db\file.json';
+$file_name = 'C:\xampp\htdocs\test-project\db\file.json';
 
 if (file_exists($file_name))
 {
@@ -55,7 +55,7 @@ function writeData($file_name, $json_array)
 }
 
 function checkUniqueData($uniqueData) {
-    $json_arr = json_decode(file_get_contents('C:\Users\User\Downloads\projects\php_stazh\test-project\db\file.json'), true);
+    $json_arr = json_decode(file_get_contents('C:\xampp\htdocs\test-project\db\file.json'), true);
     if (is_array($json_arr) || is_object($json_arr))
     {
         foreach ($json_arr as $one)
@@ -71,4 +71,3 @@ function checkUniqueData($uniqueData) {
     }
     return null;
 }
-

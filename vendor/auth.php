@@ -2,7 +2,7 @@
 
 session_start();
 
-if (file_exists('C:\Users\User\Downloads\projects\php_stazh\test-project\db\file.json'))
+if (file_exists('C:\xampp\htdocs\test-project\db\file.json'))
 {
     if (isset($_POST['login']) && isset($_POST['password']))
     {
@@ -17,7 +17,7 @@ else
 
 function AuthLoginAndPass($login, $password): array
 {
-    $json_arr = json_decode(file_get_contents('C:\Users\User\Downloads\projects\php_stazh\test-project\db\file.json'), true);
+    $json_arr = json_decode(file_get_contents('C:\xampp\htdocs\test-project\db\file.json'), true);
     foreach ($json_arr as $one)
     {
         if ($one['login'] == $login)
