@@ -2,7 +2,7 @@
 
 session_start();
 
-if (file_exists('C:\Users\User\Downloads\php_stazh\test-project\db\file.json'))
+if (file_exists('C:\Users\User\Downloads\projects\php_stazh\test-project\db\file.json'))
 {
     if (isset($_POST['login']) && isset($_POST['password']))
     {
@@ -12,12 +12,12 @@ if (file_exists('C:\Users\User\Downloads\php_stazh\test-project\db\file.json'))
 else
 {
     $_SESSION["is_auth"] = false;
-    echo json_encode("wrong-login");
+    echo json_encode(array('errorType' => 'wrong-login'));
 }
 
-function AuthLoginAndPass($login, $password): string
+function AuthLoginAndPass($login, $password): array
 {
-    $json_arr = json_decode(file_get_contents('C:\Users\User\Downloads\php_stazh\test-project\db\file.json'), true);
+    $json_arr = json_decode(file_get_contents('C:\Users\User\Downloads\projects\php_stazh\test-project\db\file.json'), true);
     foreach ($json_arr as $one)
     {
         if ($one['login'] == $login)
@@ -28,15 +28,15 @@ function AuthLoginAndPass($login, $password): string
                 $_SESSION["user_login"] = $one['login'];
                 $_SESSION['user_name'] = $one['name'];
                 setcookie('user_login', $one['login'], time() + (86400 * 30), "/");
-                return $one['name'];
+                return array('errorType' => $one['name']);
             }
             else
             {
                 $_SESSION["is_auth"] = false;
-                return "wrong-password";
+                return array('errorType' => 'wrong-password');
             }
         }
     }
     $_SESSION["is_auth"] = false;
-    return "wrong-login";
+    return array('errorType' => 'wrong-login');
 }

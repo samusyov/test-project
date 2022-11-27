@@ -1,0 +1,7 @@
+button {
+    pointer-events: none;
+}
+
+.noscript-error::after {
+    content: "Javascript выключен. Невозможно отправить форму";
+}

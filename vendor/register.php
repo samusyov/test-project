@@ -1,6 +1,6 @@
 <?php
 
-$file_name = 'C:\Users\User\Downloads\php_stazh\\test-project\db\\file.json';
+$file_name = 'C:\Users\User\Downloads\projects\php_stazh\test-project\db\file.json';
 
 if (file_exists($file_name))
 {
@@ -34,28 +34,28 @@ function writeData($file_name, $json_array)
                     );
                     $json_array[] = $new_data;
                     file_put_contents($file_name, json_encode($json_array, JSON_UNESCAPED_UNICODE));
-                    echo json_encode("success");
+                    echo json_encode(array('errorType' => 'no-error'));
                 }
                 else
                 {
-                    echo json_encode("email-error");
+                    echo json_encode(array('errorType' => 'email-error'));
                 }
             }
             else
             {
-                echo json_encode("confirm-password-error");
+                echo json_encode(array('errorType' => 'confirm-password-error'));
             }
         }
 
     }
     else
     {
-        echo json_encode("login-error");
+        echo json_encode(array('errorType' => 'login-error'));
     }
 }
 
 function checkUniqueData($uniqueData) {
-    $json_arr = json_decode(file_get_contents('C:\Users\User\Downloads\php_stazh\\test-project\db\\file.json'), true);
+    $json_arr = json_decode(file_get_contents('C:\Users\User\Downloads\projects\php_stazh\test-project\db\file.json'), true);
     if (is_array($json_arr) || is_object($json_arr))
     {
         foreach ($json_arr as $one)

@@ -10,8 +10,8 @@ $(document).ready(function() {
             processData: false,
             success: function(response) {
                 let result = $.parseJSON(response);
-                switch (result) {
-                    case "success":
+                switch (result.errorType) {
+                    case "no-error":
                         window.location.href = "signin.php";
                         break;
                     case "login-error":
@@ -29,8 +29,11 @@ $(document).ready(function() {
                     case "wrong-password":
                         changeContent("wrong-password", "Неверный пароль");
                         break;
+                    case "exit":
+                        location.reload();
+                        break;
                     default:
-                        window.location.href = "profile.php";
+                        location.reload();
                 }
             },
         });
