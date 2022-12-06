@@ -1,22 +1,24 @@
 <?php
 
+require __DIR__ . "/userCRUD.php";
+
 $file_name = '../db/file.json';
 
 if (file_exists($file_name))
 {
     $current_data = file_get_contents($file_name);
     $json_array = json_decode($current_data, true);
-    writeData($file_name, $json_array);
+    registerUser($file_name, $json_array);
 }
 else
 {
     $file = fopen($file_name,"w");
     $json_array = array();
-    writeData($file_name, $json_array);
+    registerUser($file_name, $json_array);
     fclose($file);
 }
 
-function writeData($file_name, $json_array)
+function registerUser($file_name, $json_array)
 {
     if (checkUniqueData('login') != 'login')
     {
@@ -26,14 +28,16 @@ function writeData($file_name, $json_array)
             {
                 if (checkUniqueData('email') != 'email')
                 {
+                    $arr = json_decode(file_get_contents($file_name), true);
                     $new_data = array(
+                        'id' => count(is_countable($arr) ? $arr : []) + 1,
                         'login' => filter_var(trim($_POST['login'])),
                         'password' => md5(filter_var(trim($_POST['password']))),
                         'email' => filter_var(trim($_POST['email'])),
                         'name' => filter_var(trim($_POST['name']))
                     );
                     $json_array[] = $new_data;
-                    file_put_contents($file_name, json_encode($json_array, JSON_UNESCAPED_UNICODE));
+                    createUser($json_array);
                     echo json_encode(array('errorType' => 'no-error'));
                 }
                 else
@@ -46,7 +50,6 @@ function writeData($file_name, $json_array)
                 echo json_encode(array('errorType' => 'confirm-password-error'));
             }
         }
-
     }
     else
     {

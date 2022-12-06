@@ -1,1 +1,9 @@
-[{"login":"samusyov","password":"200820e3227815ed1756a6b531e7e0d2","email":"samusyov.ivan@gmail.com","name":"Иван"}]
+[
+  {
+    "id": 1,
+    "login": "samusyov",
+    "password": "200820e3227815ed1756a6b531e7e0d2",
+    "email": "samusyov.ivan@gmail.com",
+    "name": "Иван"
+  }
+]
