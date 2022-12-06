@@ -1,9 +1,10 @@
 <?php
-    session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Регистрация</title>
@@ -16,11 +17,12 @@
         <link rel="stylesheet" href="css/noscript-style.css">
     </noscript>
 </head>
+
 <body>
 <?php
-    if (!isset($_SESSION["is_auth"]) || !$_SESSION["is_auth"]) {
-        echo
-        '<div class="container mt-4">
+if (!isset($_SESSION["is_auth"]) || !$_SESSION["is_auth"]) {
+    echo
+    '<div class="container mt-4">
         <h1>Регистрация</h1>
         <form action="/vendor/register.php" method="post">
             <label for="login"></label>
@@ -44,24 +46,23 @@
         </form>
     </div>
     ';
-    }
-    else
-    {
-        echo
-        '<div class="container mt-4">
+} else {
+    echo
+    '<div class="container mt-4">
         <h3>Здравствуйте,
         ';
-        if (isset($_SESSION['user_name'])) {
-            echo $_SESSION['user_name'];
-        }
-        echo
-        '</h3>
+    if (isset($_SESSION['user_name'])) {
+        echo $_SESSION['user_name'];
+    }
+    echo
+    '</h3>
         <form action="/vendor/exit.php" method="post">
             <button class="btn btn-success mt-4" type="submit">Выйти</button>
         </form>
     </div>
     ';
-    }
+}
 ?>
 </body>
+
 </html>

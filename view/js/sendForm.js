@@ -32,8 +32,6 @@ $(document).ready(function() {
                     case "exit":
                         location.reload();
                         break;
-                    default:
-                        location.reload();
                 }
             },
         });
