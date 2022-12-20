@@ -1,0 +1,16 @@
+form {
+    width: 500px;
+}
+
+h1, h3, p {
+    text-align: center;
+}
+
+.displayed {
+    display: block;
+    margin: 0 auto;
+}
+
+button {
+    width: 200px;
+}

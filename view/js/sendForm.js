@@ -18,7 +18,7 @@ $(document).ready(function() {
 function handleResult(msg) {
     switch (msg) {
         case "no_error":
-            window.location.href = "signin.php";
+            window.location.href = "sign-in.php";
             break;
         case "login_error":
             setError("login", "login_error", "Логин уже зарегистрирован");

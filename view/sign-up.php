@@ -9,12 +9,13 @@ session_start();
     <meta charset="UTF-8">
     <title>Регистрация</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href=css/style.css>
+    <link rel="stylesheet" href=css/mainStyle.css>
+    <link rel="stylesheet" href=css/errorFieldStyle.css>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script type="text/javascript" src="js/checkPassword.js"></script>
     <script type="text/javascript" src="js/sendForm.js"></script>
     <noscript>
-        <link rel="stylesheet" href="css/noscript-style.css">
+        <link rel="stylesheet" href="css/noScriptStyle.css">
     </noscript>
 </head>
 
@@ -24,7 +25,7 @@ if (!isset($_SESSION["is_auth"]) || !$_SESSION["is_auth"]) {
     echo
     '<div class="container mt-4">
         <h1>Регистрация</h1>
-        <form action="/vendor/register.php" method="post">
+        <form class="displayed" action="/vendor/register.php" method="post">
             <label for="login"></label>
             <input type="text" class="form-control" name="login" id="login" placeholder="Введите логин" minlength="6" maxlength="16" pattern="^\S*$" required>
             <div class="error-field" id="login_error"></div>
@@ -38,10 +39,10 @@ if (!isset($_SESSION["is_auth"]) || !$_SESSION["is_auth"]) {
             <div class="error-field" id="email_error"></div>
             <label for="name"></label>
             <input type="text" class="form-control" name="name" id="name" placeholder="Введите имя" minlength="2" maxlength="64" pattern="^[A-ЯЁ][а-яё]+|[A-Z][a-z]+$" required>
-            <button class="btn btn-success mt-4" id="sign_up_submit" type="submit">Зарегистрироваться</button>
+            <button class="btn btn-success mt-4 displayed" id="sign_up_submit" type="submit">Зарегистрироваться</button>
             <div id="noscript_error"></div>
-            <p class="mt-4">
-                У Вас уже есть аккаунт? - <a href="signin.php">Авторизуйтесь!</a>
+            <p class="mt-4 displayed">
+                У Вас уже есть аккаунт? - <a href="sign-in.php">Авторизуйтесь!</a>
             </p>
         </form>
     </div>
@@ -56,8 +57,8 @@ if (!isset($_SESSION["is_auth"]) || !$_SESSION["is_auth"]) {
     }
     echo
     '</h3>
-        <form action="/vendor/exit.php" method="post">
-            <button class="btn btn-success mt-4" type="submit">Выйти</button>
+        <form class="displayed" action="/vendor/exit.php" method="post">
+            <button class="btn btn-success mt-4 displayed" type="submit">Выйти</button>
         </form>
     </div>
     ';
