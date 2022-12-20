@@ -29,7 +29,7 @@ if (!isset($_SESSION["is_auth"]) || !$_SESSION["is_auth"]) {
             <input type="text" class="form-control" name="login" id="login" placeholder="Введите логин" minlength="6" maxlength="16" pattern="^\S*$" required>
             <div class="error-field" id="login_error"></div>
             <label for="password"></label>
-            <input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль" minlength="6" maxlength="16" pattern="^(([a-z]+\d+)|(\d+[a-z]+))[a-z\d]*$" required>
+            <input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль" minlength="6" maxlength="16" pattern="^(([A-Za-z]+\d+)|(\d+[A-Za-z]+))[A-Za-z\d]*$" onchange="checkPasswordMatch()" required>
             <label for="confirm_password"></label>
             <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Подтвердите пароль" onchange="checkPasswordMatch()" required>
             <div class="error-field" id="confirm_password_error"></div>
