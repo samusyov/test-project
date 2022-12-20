@@ -43,11 +43,17 @@ function handleResult(msg) {
 
 function setError(field, error_field, error_message) {
     removeError();
+    resetPasswordFields();
     $('#' + error_field).html(error_message);
     $('#' + field).addClass('red-style');
 }
 
 function removeError() {
-    $('.error-field').html("");
+    $('.error-field').html('');
     $('.form-control').removeClass('red-style');
+}
+
+function resetPasswordFields() {
+    $('#password').val('');
+    $('#confirm_password').val('');
 }
