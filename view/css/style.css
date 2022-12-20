@@ -1,3 +1,11 @@
 form {
     width: 500px;
 }
+
+.error-field {
+    color: red;
+}
+
+.red-border {
+    border-color: red;
+}

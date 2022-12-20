@@ -23,15 +23,15 @@ if (!isset($_SESSION["is_auth"]) || !$_SESSION["is_auth"]) {
     echo
     '<div class="container mt-4">
             <h1>Авторизация</h1>
-            <form action="/vendor/auth.php" method="post">
+            <form action="/vendor/authorize.php" method="post">
                 <label for="login"></label>
                 <input type="text" class="form-control" name="login" id="login" placeholder="Введите логин" minlength="6" maxlength="16" required>
-                <div class="wrong-login"></div>
+                <div class="error-field" id="wrong_login"></div>
                 <label for="password"></label>
                 <input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль" minlength="6" maxlength="16" required>
-                <div class="wrong-password"></div>
+                <div class="error-field" id="wrong_password"></div>
                 <button class="btn btn-success mt-4" type="submit">Войти</button>
-                <div class="noscript-error"></div>
+                <div id="noscript_error"></div>
                 <p class="mt-4">
                     У Вас ещё нет аккаунта? - <a href="signup.php">Зарегистрируйтесь!</a>
                 </p>

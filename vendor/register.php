@@ -28,16 +28,16 @@ function registerUser($file_name, $json_array)
                         filter_var(trim($_POST['email'])),
                         filter_var(trim($_POST['name'])));
                     createUser($user, $json_array);
-                    echo json_encode(array('errorType' => 'no-error'));
+                    echo json_encode(array('msg' => 'no_error'));
                 } else {
-                    echo json_encode(array('errorType' => 'email-error'));
+                    echo json_encode(array('msg' => 'email_error'));
                 }
             } else {
-                echo json_encode(array('errorType' => 'confirm-password-error'));
+                echo json_encode(array('msg' => 'confirm_password_error'));
             }
         }
     } else {
-        echo json_encode(array('errorType' => 'login-error'));
+        echo json_encode(array('msg' => 'login_error'));
     }
 }
 

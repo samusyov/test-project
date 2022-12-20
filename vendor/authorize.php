@@ -10,7 +10,7 @@ if (file_exists('../db/file.json')) {
     }
 } else {
     $_SESSION["is_auth"] = false;
-    echo json_encode(array('errorType' => 'wrong-login'));
+    echo json_encode(array('msg' => 'wrong_login'));
 }
 
 function AuthLoginAndPass($login, $password): array
@@ -23,13 +23,13 @@ function AuthLoginAndPass($login, $password): array
             $_SESSION['user_login'] = $user->getLogin();
             $_SESSION['user_name'] = $result;
             setcookie('user_login', $user->getLogin(), time() + (86400 * 30), "/");
-            return array('errorType' => 'no-error');
+            return array('msg' => 'no_error');
         } else {
             $_SESSION['is_auth'] = false;
-            return array('errorType' => 'wrong-password');
+            return array('msg' => 'wrong_password');
         }
     } else {
         $_SESSION['is_auth'] = false;
-        return array('errorType' => 'wrong-login');
+        return array('msg' => 'wrong_login');
     }
 }
