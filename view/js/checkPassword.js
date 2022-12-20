@@ -3,13 +3,13 @@ function checkPasswordMatch() {
     let confirmPassword = $("#confirm_password").val();
     if (password !== confirmPassword) {
         $("#confirm_password_error").html("Пароли не совпадают");
-        $('#password').addClass('red-border');
-        $('#confirm_password').addClass('red-border');
+        $('#password').addClass('red-style');
+        $('#confirm_password').addClass('red-style');
         $("#sign_up_submit").attr("disabled", "disabled");
     } else {
         $("#confirm_password_error").html("");
-        $('#password').removeClass('red-border');
-        $('#confirm_password').removeClass('red-border');
+        $('#password').removeClass('red-style');
+        $('#confirm_password').removeClass('red-style');
         $("#sign_up_submit").removeAttr("disabled");
     }
 }

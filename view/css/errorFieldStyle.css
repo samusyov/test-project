@@ -2,6 +2,6 @@
     color: red;
 }
 
-.red-border {
+.red-style, .red-style:focus, .red-style:hover,  .red-style:active {
     border-color: red;
 }

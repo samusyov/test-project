@@ -44,10 +44,10 @@ function handleResult(msg) {
 function setError(field, error_field, error_message) {
     removeError();
     $('#' + error_field).html(error_message);
-    $('#' + field).addClass('red-border');
+    $('#' + field).addClass('red-style');
 }
 
 function removeError() {
     $('.error-field').html("");
-    $('.form-control').removeClass('red-border');
+    $('.form-control').removeClass('red-style');
 }
